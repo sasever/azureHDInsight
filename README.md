@@ -6,7 +6,7 @@ There are [several options](https://docs.microsoft.com/en-us/azure/hdinsight/clu
 * [ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka)
 * [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/hdinsight_kafka_cluster)
 
-# Private link preview:
+## Private link preview:
 
 For now we have no ready template for this configuration. if you want to deploy kafka cluster with private link and no public IPs,there are some key prep points that you should be following. Private link configuration is only available with HDInsight RM behavior being Outbound.
 
