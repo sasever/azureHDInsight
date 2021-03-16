@@ -123,7 +123,7 @@ HDInsight Kafka clusters does [not support autoscale](https://docs.microsoft.com
 
 You should [rebalance kafka partitions and replicas](https://github.com/hdinsight/hdinsight-kafka-tools) after scaling operations.
 
-## High Availability of HDInsight KAfka
+## High Availability of HDInsight Kafka
 
 HDInsight cluster nodes are spread into different Fault domains to prevent loss in case of an issue in a specific [fault domain](https://docs.microsoft.com/en-us/archive/msdn-magazine/2015/september/microsoft-azure-fault-tolerance-pitfalls-and-resolutions-in-the-cloud#fault-domains-and-upgrade-domains).
 
