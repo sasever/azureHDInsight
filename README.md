@@ -4,7 +4,9 @@
 
 There are [several options](https://docs.microsoft.com/en-us/azure/hdinsight/cluster-management-best-practices#how-do-i-create-hdinsight-clusters) in how to deploy HDI Kafka Clusters. Other then Azure Portal, CLI, PowerShell and Azure Rest API, template based options are as follows:
 * [ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka)
-* [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/hdinsight_kafka_cluster)
+* [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/hdinsight_kafka_cluster) (*)
+
+(*)*Terraform does not support private link and outbound network setup as the time of this document preperation.*
 
 ## Private link preview:
 
@@ -29,8 +31,8 @@ az network vnet subnet update   --name <your HDInsight Subnet>  --resource-group
 ```
 Because HDinsight privatelink cluster have Standart load balancers isntead of basic, we need to congfigure a NAT solution or Firewall to route the outbound traffic to the HDInSight Resource manager IPs.
 1. Create a Firewall in a dedicated firewall subnet.
-1. Create a route table
-1. Configure Firewall app and network rules and routing table accourding to [this guidance](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-restrict-outbound-traffic)
+1. Create a route table.
+1. Configure Firewall app and network rules and routing table accourding to [this guidance](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-restrict-outbound-traffic).
 1. Associate the routing table with the HDInsight Subnet.
 
 The network and service architecture will be like below before provisioning:
@@ -46,11 +48,11 @@ After provisioning the architecture will be like below:
 
 ![HDInsightPrivatelinkNetworkArchitecture](images/after-cluster-creation.png)
 
-If you only aim to limit outbound connection without private link your Cluster will still have the basic load balancers, you can perform only the steps that are marked with :star: . since the cluster will be deployed with basic load balancers which provides NAT by defult you wont need a Firewall definition. So your network architecture will be as below:
+If you only aim to limit outbound connection without private link your Cluster will still have the basic load balancers, you can perform only the steps that are marked with :star:. Since the cluster will be deployed with basic load balancers which provides NAT by default you wont need a Firewall definition. So your network architecture will be as below:
 
 ![HDInsightOutboundNetworkArchitecture](images/outbound-resource-provider-connection-only.png)
 
-For Additional information on how to control network  traffic you can [use this gudaince](https://docs.microsoft.com/en-us/azure/hdinsight/control-network-traffic)
+For Additional information on how to control network  traffic you can [use this gudaince](https://docs.microsoft.com/en-us/azure/hdinsight/control-network-traffic).
 
 **If you want to use Kafka with vnet peering, you need to change the kafka broker setting to [advertise ip addresses](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway#configure-kafka-for-ip-advertising) instead of FQDNs.**
 
