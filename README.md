@@ -17,7 +17,7 @@ Blocking inbound traffic and restricting outbound traffic requires some preparat
 1. Creating a Logical SQL server with 3 Azure SQL  Databases for External Ambari, Hive and Oozie Metastores.:star:
     * For the SQL server you need to whitelist [HDI Management service IPs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-all-regions).:star:
     *  Allow access all Azure Services
-1. Create and provide the storage account upfront.
+1. Create and provide the storage account as Data lake Gen2(Hierarchical) upfront.
     * Keep Storage account as public :worried:
     * Whitelist [HDI Management service IPs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-all-regions).:star:
 1. Create a subnet for hdinsight with an NSG. 
