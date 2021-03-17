@@ -121,6 +121,10 @@ You can also use below sample python consumer and producer applicataions from a 
 * Producer: [KafkaProducer.ipynb](notebooks/KafkaProducer.ipynb)
 * ProducConsumerer: [KafkaConsumer.ipynb](notebooks/KafkaConsumer.ipynb)
 
+## Using Kafka Connect with HDInsight Kafka.
+Besides many possible other architectures of Kafka Connect Clusters, We can have a standalone or distributed Kafka Connect Cluster created as Edge nodes to the cluster.
+To test that configuration you can follow [this lab](https://techcommunity.microsoft.com/t5/analytics-on-azure/kafka-connect-with-hdinsight-managed-kafka/ba-p/1547013)
+
 ## Scaling the Cluster
 
 HDInsight Kafka clusters does [not support autoscale](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-autoscale-clusters#cluster-compatibility) due to the nature of broker and partition setup of auto downscale behavior.
